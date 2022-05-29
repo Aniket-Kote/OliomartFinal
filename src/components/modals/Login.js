@@ -13,8 +13,9 @@ const Login = ({ setToken }) => {
   const navigate = useNavigate();
 
   const submitHandler = async () => {
-    setLoading(true);
+    
     try {
+      setLoading(true);
       const config = {
         headers: {
           "Content-type": "application/json",

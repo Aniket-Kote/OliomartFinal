@@ -8,12 +8,16 @@ import Beauty from "./tempPages/Beauty";
 import Handicraft from "./tempPages/Handicraft";
 import MoreOptions from "../Sidebar/Options/MoreOptions";
 import { Route, Routes } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 
 const Sidebar = () => {
   return (
     <>
       <div className="sidebarComponent">
+
+
+
         {/* <ProductSearch /> */}
         <Caregories />
         <Routes>

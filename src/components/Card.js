@@ -7,7 +7,7 @@ const Card = () => {
   const [searchProduct,setSearchProduc]=useState('');
 
   const getProducts = async () => {
-    const response = await fetch("https://oliomart.herokuapp.com/getproducts", {
+    const response = await fetch("http://localhost:3000/getproducts", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -27,6 +27,7 @@ const Card = () => {
 
   return (
     <>
+    
     <input type="text" placeholder="Search ...." onChange={event=>setSearchProduc(event.target.value)} className="searchProduct bg-transparent text-primary"/>
     <section className="text-primary body-font ">
       <div className="container px-5 py-24 mx-auto ">
@@ -40,7 +41,7 @@ const Card = () => {
              }
            }).map((curElem) => {
                return (
-                 <SingleCard card_id={curElem._id} imgSrc={curElem.pimage} productName={curElem.pname} productPrice={curElem.price}/>
+                 <SingleCard card_id={curElem._id} imgSrc={curElem.pimage} productName={curElem.pname} productPrice={curElem.price} category={curElem.pcategory}/>
                 
           );
          })

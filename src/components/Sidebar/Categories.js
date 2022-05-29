@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 
@@ -6,6 +7,8 @@ import { Route, Routes } from "react-router-dom";
 const Categories = () => {
   return (
   <>
+<Card/>
+
     <div>
         <div className="categoriesList ">
         <span className="text-primary text-xl">Categories</span>

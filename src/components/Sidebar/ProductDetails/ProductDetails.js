@@ -8,12 +8,11 @@ const ProductDetails = () => {
 
     const {puserid} = useParams();
     const [pdetails,setPdetails]=useState([]);
-    const[loading,setLoading]=useState(false);
    
     
     const getProductDetails = async() =>{
        
-        // const response = await axios.get(`https://oliomart.herokuapp.com/getproducts?search=${puserid}`, {
+        // const response = await axios.get(`http://localhost:3000/getproductdetails/${puserid}`, {
         //     method: "GET",
         //     headers: {
         //       Accept: "application/json",
@@ -24,18 +23,26 @@ const ProductDetails = () => {
         //     },
         //   }).then(res=>{
         //     console.log(res);
+        //     setPdetails(res.data)
+        //     console.log('====================================');
+        //     console.log(pdetails);
+        //     console.log('====================================');
         //   })
-        //  const data=response.json();
-        //  console.log(data);
-        //  setPdetails(await response.json());
+       
 
-
-        axios.get(`https://oliomart.herokuapp.com/getproducts/${puserid}`)
+}
+        axios.get(`http://localhost:3000/getproductdetails/:${puserid}`)
         .then(res=>{
-          console.log(res);
+          setPdetails(res);
+          // console.log(pdetails);
+          
+        }).catch(err=>{
+          console.log('====================================');
+          console.log(err);
+          console.log('====================================');
         })
-        
-    }
+    
+    
     
 
 
@@ -43,7 +50,7 @@ const ProductDetails = () => {
       <>
         <div className="text-white">ProductDetails</div>
     <p className="text-white">{puserid}</p>
-    {pdetails.pname}
+    {/* {pdetails.data.pname} */}
 <ProductImages/>
 <ProductInfo/>
     </>

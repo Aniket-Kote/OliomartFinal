@@ -21,6 +21,7 @@ const SingleCard = (props) => {
           <h3 className="text-primary text-xs tracking-widest title-font mb-1 px-3 ">
             {props.productName}
           </h3>
+          <p className="mt-1 text-white px-2 pb-2">{props.category}</p>
           <p className="mt-1 text-trade px-2 pb-2">{props.productPrice}</p>
         </div>
       </div>
