@@ -5,6 +5,10 @@ const Product = () => {
   
   return (
     <>
+    <div className="flex">
+
+
+
     <div>
     <Sidebar/>
     </div>
@@ -14,6 +18,7 @@ const Product = () => {
         <Card/>
         </div>
       </div>
+    </div>
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom';
+import SingleCard from './SingleCard';
 const Card = () => {
   const [products, setProducts] = useState([]);
 
@@ -31,15 +32,8 @@ const Card = () => {
          {
            products.map((curElem) => {
                return (
-                 <div className="lg:w-1/5 md:w-1/2 p-0 m-4 w-full border-2 border-trade gap-2">
-                    <Link to={`/productdetails/${curElem.puserid}`} className="block relative h-48 rounded overflow-hidden" key={curElem._id}>
-                   <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={curElem.pimage}/>
-                     </Link>
-                   <div className="mt-3">
-                   <h3 className="text-primary text-xs tracking-widest title-font mb-1 px-3 ">{curElem.pname}</h3>
-                   <p className="mt-1 text-trade px-2 pb-2">{curElem.price}</p>
-                   </div>
-               </div>
+                 <SingleCard card_id={curElem._id} imgSrc={curElem.pimage} productName={curElem.pname} productPrice={curElem.price}/>
+                
           );
          })
       }
@@ -51,3 +45,14 @@ const Card = () => {
 }
 
 export default Card;
+
+
+ {/* <div className="lg:w-1/5 md:w-1/2 p-0 m-4 w-full border-2 border-trade gap-2" key={curElem._id}>
+                    <Link to={`/productdetails/${curElem.puserid}`} className="block relative h-48 rounded overflow-hidden" key={curElem._id}>
+                   <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={curElem.pimage}/>
+                     </Link>
+                   <div className="mt-3">
+                   <h3 className="text-primary text-xs tracking-widest title-font mb-1 px-3 ">{curElem.pname}</h3>
+                   <p className="mt-1 text-trade px-2 pb-2">{curElem.price}</p>
+                   </div>
+               </div> */}
