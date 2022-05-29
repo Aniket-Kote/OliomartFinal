@@ -7,7 +7,7 @@ import Contact from "../components/Contact";
 import AccountImg from "../Images/TestAccount.png";
 
 import Product from "./Product";
-import ProductDetails from "./Sidebar/ProductDetails";
+import ProductDetails from "./Sidebar/ProductDetails/ProductDetails";
 
 
 const Navbar = () => {

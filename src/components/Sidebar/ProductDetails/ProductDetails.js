@@ -1,28 +1,39 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import ProductImages from './ProductImages';
+import ProductInfo from './ProductInfo';
 
 const ProductDetails = () => {
 
     const {puserid} = useParams();
-    const [pdetails,setPdetails]=useState();
+    const [pdetails,setPdetails]=useState([]);
     const[loading,setLoading]=useState(false);
    
     
     const getProductDetails = async() =>{
        
-        const response = await fetch(`https://oliomart.herokuapp.com/getproducts?search=${puserid}`, {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              auth_token:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWUwMTIyYjFmY2I2ODE3ZTVlODViZGYiLCJpYXQiOjE2NTM2NTc3NDl9.1PY0LfeVj8jwMx2urvgglEdjDBidBKxfx7mqb6euDxE",
-              mode: "cors",
-            },
-          });
-         const data=response.json();
-         console.log(data);
-         setPdetails(await response.json());
+        // const response = await axios.get(`https://oliomart.herokuapp.com/getproducts?search=${puserid}`, {
+        //     method: "GET",
+        //     headers: {
+        //       Accept: "application/json",
+        //       "Content-Type": "application/json",
+        //       auth_token:
+        //         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWUwMTIyYjFmY2I2ODE3ZTVlODViZGYiLCJpYXQiOjE2NTM2NTc3NDl9.1PY0LfeVj8jwMx2urvgglEdjDBidBKxfx7mqb6euDxE",
+        //       mode: "cors",
+        //     },
+        //   }).then(res=>{
+        //     console.log(res);
+        //   })
+        //  const data=response.json();
+        //  console.log(data);
+        //  setPdetails(await response.json());
+
+
+        axios.get(`https://oliomart.herokuapp.com/getproducts/${puserid}`)
+        .then(res=>{
+          console.log(res);
+        })
         
     }
     
@@ -30,8 +41,19 @@ const ProductDetails = () => {
 
   return (
       <>
-        <div>ProductDetails</div>
-        <section class="text-gray-600 body-font overflow-hidden">
+        <div className="text-white">ProductDetails</div>
+    <p className="text-white">{puserid}</p>
+    {pdetails.pname}
+<ProductImages/>
+<ProductInfo/>
+    </>
+  )
+}
+
+export default ProductDetails
+
+
+   {/* <section class="text-gray-600 body-font overflow-hidden">
   <div class="container px-5 py-24 mx-auto">
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
      
@@ -114,9 +136,4 @@ const ProductDetails = () => {
       <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400" />
       </div>
       </div>
-</section>
-    </>
-  )
-}
-
-export default ProductDetails
+</section> */}

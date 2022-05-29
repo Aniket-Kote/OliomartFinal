@@ -1,8 +1,8 @@
 import React from "react";
 import Card from "./Card";
 import Sidebar from "./Sidebar/Sidebar";
+import { useState } from "react";
 const Product = () => {
-  
   return (
     <>
     <div className="flex">

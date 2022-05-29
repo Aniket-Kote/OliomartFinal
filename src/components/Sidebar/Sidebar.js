@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <>
       <div className="sidebarComponent">
-        <ProductSearch />
+        {/* <ProductSearch /> */}
         <Caregories />
         <Routes>
         <Route path="/packagefood" element={<Package />} />

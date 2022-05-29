@@ -12,6 +12,7 @@ body {
   background-repeat: repeat;
   /* background-position: 100%; */
   background-size: cover;
+  color: white;
 }
 
 .profileDemo {
